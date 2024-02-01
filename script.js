@@ -2,8 +2,6 @@ const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list");
 
 
-
-
 arrows.forEach((arrow, i) => {
     const widthRatio = Math.floor(window.innerWidth / 300)
 
@@ -14,29 +12,29 @@ arrows.forEach((arrow, i) => {
     arrow.addEventListener("click", function () {
 
         clickCounter++;
-    if(imageItem - (4 + clickCounter) + (4 - widthRatio) >= 0){
+        if (imageItem - (4 + clickCounter) + (4 - widthRatio) >= 0) {
 
             movieLists[i].style.transform = `translateX(${
                 movieLists[i].computedStyleMap().get("transform")[0].x.value - 300
             }px)`
 
-    }else{
+        } else {
 
-        movieLists[i].style.transform = "translateX(0)"
-        clickCounter =0;
-    }
+            movieLists[i].style.transform = "translateX(0)"
+            clickCounter = 0;
+        }
 
     });
 });
 
 
-
 const ball = document.querySelector((".toggle-ball"));
 
-const items = document.querySelectorAll((".container, .navbar, .movie-list-filter select, .sidebar, .sidebar i, .toggle, .toggle-ball, .movie-list-filter select "))
+const items = document.querySelectorAll((".container, .navbar, .movie-list-filter select, " +
+    ".sidebar, .sidebar i, .toggle, .toggle-ball, .movie-list-filter select "))
 
 
-ball.addEventListener("click", function (){
+ball.addEventListener("click", function () {
     items.forEach((item) => item.classList.toggle("active"))
 });
 
